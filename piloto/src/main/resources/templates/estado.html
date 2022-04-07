@@ -30,7 +30,7 @@
     </div>
     <br><br><br><br>
     <div>
-        <form action="" method="GET" th:object="${estado}">
+        <form action="/salvarEstado" method="POST" th:object="${estado}">
             <label for="nome">Estado</label>
             <input type="text" id="nome" th:field="*{nome}">
             <br><br><br><br>
