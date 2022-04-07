@@ -52,11 +52,11 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>id</td>
-                    <td>estado</td>
-                    <td>sigla</td>
-                    <td colspan="2"><a href="" type="button">Editar</a> <a href="" type="button">Excluir</a></td>
+                <tr th:each="estado : ${estados}">
+                    <td th:text="${estado.id}"></td>
+                    <td th:text="${estado.nome}"></td>
+                    <td th:text="${estado.sigla}"></td>
+                    <td colspan="2"><a href="" type="button" th:href="@{/editarEstado/{id} (id=${estado.id})}">Editar</a> <a href="" type="button" th:href="@{/excluirEstado/{id} (id=${estado.id})}">Excluir</a></td>
                 </tr>
             </tbody>
             <tfoot>
