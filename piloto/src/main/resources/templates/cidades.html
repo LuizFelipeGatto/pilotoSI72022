@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cidade</title>
+    <style type="text/css">
+        body {
+            text-align: center;            
+        }
+
+        #menu ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid;
+        }
+
+        table {
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="menu">
+        <ul>
+            <li><a href="">Home</a></li>
+            <li><a href="">Estado</a></li>
+        </ul>
+    </div>
+    <div>       
+        <h3>Cidades</h3>
+    </div>
+    <div>       
+        <p>Cadastrar</p>        
+    </div>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nome</th>
+                    <th>Acões</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="cidade : ${cidades}">
+                    <td th:text="${cidade.id}"></td>
+                    <td th:text="${cidade.nome}"></td>
+                    <td colspan="2"><a href="" type="button" th:href="@{/editarCidade/{id} (id=${cidade.id})}">Editar</a> <a href="" type="button" th:href="@{/excluirCidade/{id} (id=${cidade.id})}">Excluir</a></td>
+                </tr>
+            </tbody>
+            <tfoot>
+            </tfoot>
+        </table>
+    </div>
+</body>
+
+</html>
