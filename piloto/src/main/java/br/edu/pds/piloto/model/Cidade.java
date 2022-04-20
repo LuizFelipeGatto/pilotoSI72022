@@ -16,4 +16,7 @@ public class Cidade {
     @Column
     private String nome;
 
+    @ManyToOne
+    private Estado estado;
+
 }

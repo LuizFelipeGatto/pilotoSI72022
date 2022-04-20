@@ -2,6 +2,7 @@ package br.edu.pds.piloto.controller;
 
 import br.edu.pds.piloto.model.Cidade;
 import br.edu.pds.piloto.repository.CidadeRepositorio;
+import br.edu.pds.piloto.repository.EstadoRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -19,10 +20,14 @@ public class CidadeController {
     @Autowired
     private CidadeRepositorio cidadeRepositorio;
 
+    @Autowired
+    private EstadoRepositorio estadoRepositorio;
+
     @GetMapping("/cadastrarCidade")
     public ModelAndView cadastrar(Cidade cidade){
         ModelAndView mv = new ModelAndView("cidade");
         mv.addObject("cidade", cidade);
+        mv.addObject("estados", estadoRepositorio.findAll());
         return mv;
     }
 
