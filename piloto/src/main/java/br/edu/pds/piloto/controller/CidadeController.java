@@ -47,7 +47,7 @@ public class CidadeController {
 
         cidadeRepositorio.saveAndFlush(cidade);
 
-        return listar();
+        return new ModelAndView("redirect:/listarCidade");
     }
 
     @GetMapping("/editarCidade/{id}")
@@ -60,6 +60,6 @@ public class CidadeController {
     public ModelAndView excluir(@PathVariable("id") Long id){
         Optional<Cidade> cidade = cidadeRepositorio.findById(id);
         cidadeRepositorio.delete(cidade.get());
-        return listar();
+        return new ModelAndView("redirect:/listarCidade");
     }
 }
