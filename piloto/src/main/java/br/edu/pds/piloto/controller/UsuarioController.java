@@ -3,6 +3,7 @@ package br.edu.pds.piloto.controller;
 import br.edu.pds.piloto.model.Usuario;
 import br.edu.pds.piloto.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -43,7 +44,7 @@ public class UsuarioController {
 
         usuarioRepository.saveAndFlush(usuario);
 
-        return listar();
+        return new ModelAndView("redirect:/listarUsuario");
     }
 
     @GetMapping("/editarUsuario/{id}")
@@ -56,6 +57,6 @@ public class UsuarioController {
     public ModelAndView excluir(@PathVariable("id") Long id){
         Optional<Usuario> usuario = usuarioRepository.findById(id);
         usuarioRepository.delete(usuario.get());
-        return listar();
+        return new ModelAndView("redirect:/listarUsuario");
     }
 }
