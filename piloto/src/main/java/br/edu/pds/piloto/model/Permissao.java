@@ -6,18 +6,16 @@ import javax.persistence.*;
 
 @Entity
 @Data
-@Table(name="usuarios")
-public class Usuario {
+@Table(name="permissoes")
+public class Permissao {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column
-    private String nome;
+    @ManyToOne
+    private Usuario usuario;
 
-    @Column
-    private String senha;
-
-
+    @ManyToOne
+    private Role role;
 }
