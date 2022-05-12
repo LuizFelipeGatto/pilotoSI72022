@@ -4,6 +4,7 @@ import br.edu.pds.piloto.model.Usuario;
 import br.edu.pds.piloto.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -40,6 +41,10 @@ public class UsuarioController {
         if(result.hasErrors()){
 //            usuario.setSenha(usuario.getSenha()); criptografar
             return cadastrar(usuario);
+        }
+
+        if(usuario.getSenha().length() < 20){
+            usuario.setSenha(new BCryptPasswordEncoder().encode(usuario.getSenha()));
         }
 
         usuarioRepository.saveAndFlush(usuario);

@@ -2,7 +2,6 @@ package br.edu.pds.piloto.controller;
 
 
 import br.edu.pds.piloto.model.Permissao;
-import br.edu.pds.piloto.model.Role;
 import br.edu.pds.piloto.repository.PermissaoRepository;
 import br.edu.pds.piloto.repository.RoleRepository;
 import br.edu.pds.piloto.repository.UsuarioRepository;
