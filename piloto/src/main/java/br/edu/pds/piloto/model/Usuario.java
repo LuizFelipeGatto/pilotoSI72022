@@ -20,7 +20,6 @@ public class Usuario {
 
     @Column
     @NotBlank(message = "Preencha o campo Senha")
-    @Sec
     private String senha;
 
 
