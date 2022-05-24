@@ -24,10 +24,14 @@
     <div class="container p-5" id="cadastro">
         <form action="/salvarCidade" method="POST" th:object="${cidade}">
             <div class="form-group row  p-5">
-                <label for="nome" class="col-sm-4 col-form-label">Cidade</label>
-                <div class="col-sm-8">
-                    <input type="text" class="form-control" id="nome" placeholder="Nome da Cidade" autofocus="autofocus" th:field="*{nome}"/>
+                <label for="nome" class="col-sm-2 col-form-label">Cidade</label>
+<!--                required="required"-->
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="nome" maxlength="24" placeholder="Nome da Cidade" autofocus="autofocus" th:field="*{nome}"/>
                     <div class="invalid-feedback"></div>
+                </div>
+                <div class="col-sm-4">
+                    <span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}" class="alert alert-danger"></span>
                 </div>
             </div>
             <div class="form-group row  p-5">
