@@ -3,6 +3,7 @@ package br.edu.pds.piloto.model;
 import lombok.Data;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Data
@@ -14,9 +15,12 @@ public class Usuario {
     private Long id;
 
     @Column
+    @NotBlank(message = "Preencha o campo Nome")
     private String nome;
 
     @Column
+    @NotBlank(message = "Preencha o campo Senha")
+    @Sec
     private String senha;
 
 
