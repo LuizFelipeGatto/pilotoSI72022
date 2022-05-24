@@ -3,6 +3,7 @@ package br.edu.pds.piloto.model;
 import lombok.Data;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Data
@@ -14,6 +15,7 @@ public class Cidade {
     private Long id;
 
     @Column
+    @NotBlank(message = "Preencha o campo Cidade")
     private String nome;
 
     @ManyToOne
