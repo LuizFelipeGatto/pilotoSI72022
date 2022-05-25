@@ -45,6 +45,7 @@
         <a class="btn btn-outline-primary" sec:authorize="!hasAuthority('usuario')" th:href="@{/login}">Entrar</a>
         <span sec:authorize="hasAuthority('usuario')" sec:authentication="name"></span>
         <a sec:authorize="hasAuthority('usuario')" class="btn btn-success mx-2" th:href="@{/cadastrarUsuario}">Cadastrar</a>
+        <a class="btn btn-outline-primary" sec:authorize="hasAuthority('usuario')" th:href="@{/logout}">Sair</a>
     </div>
 </header>
 <div class="layout-main">
